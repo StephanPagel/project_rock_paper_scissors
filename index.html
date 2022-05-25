@@ -10,7 +10,39 @@
 </head>
 
 <body>
-
+    <section>
+        <form action="">
+            <article>
+                <p>how far will you go?</p>
+                <div class="input_rounds">
+                    <input type="radio" name="" id="rounds5">5
+                    <input type="radio" name="" id="rounds10">10
+                    <input type="radio" name="" id="rounds15">15
+                    <input type="radio" name="" id="rounds20">20
+                </div>
+                <div class="show_rounds">
+                    <p>
+                        <span id="roundsCurrent"></span>
+                        <span id="roundsTotal"></span>
+                    </p>
+                </div>
+            </article>
+            <article>
+                <p>
+                    <span id="pointsUser"></span>
+                    <span id="pointsComp"></span>
+                </p>
+            </article>
+            <p id="outputInfo"></p>
+            <article>
+                <button id="rock" onclick="startGame()"><img src="" alt="rock"></button>
+                <button id="paper" onclick="startGame()"><img src="" alt="paper"></button>
+                <button id="scissors" onclick="startGame()"><img src="" alt="scissors"></button>
+            </article>
+            <p>MAKE YOUR MOVE.</p>
+            <button onclick="restartGame()">restart</button>
+        </form>
+    </section>
     <script src="assets/js/main.js"></script>
 </body>
 
