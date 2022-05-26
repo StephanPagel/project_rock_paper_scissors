@@ -12,9 +12,9 @@
 <body>
     <section>
         <h1>ROCK PAPER SCISSORS</h1>
-        <form action="" onsubmit="return false">
+        <form onsubmit="return false">
             <article>
-                <p>how far will you go?</p>
+                <p>How many rounds?</p>
                 <div class="input_rounds">
                     <input type="radio" name="rounds" id="inputRounds5" onclick="selectRounds()">5
                     <input type="radio" name="rounds" id="inputRounds10" onclick="selectRounds()">10
@@ -33,13 +33,15 @@
             <article>
                 <p>Points</p>
                 <p>
+                    <span><img src="assets/img/icons8-benutzer-48.png" alt="user"></span>
                     <span id="outputScoreUser"></span>
                     <span> : </span>
                     <span id="outputScoreComputer"></span>
+                    <span><img src="assets/img/icons8-computer-50.png" alt=""></span>
                 </p>
             </article>
             <p id="outputResult"></p>
-            <article>
+            <article class="icons">
                 <button id="inputChoiceRock" onclick="chooseRock()"><img src="assets/img/icons8-rock-48.png"
                         alt="rock"></button>
                 <button id="inputChoicePaper" onclick="choosePaper()"><img src="assets/img/icons8-paper-64.png"
@@ -48,9 +50,14 @@
                         alt="scissors"></button>
             </article>
             <p id="outputInstruction"></p>
-            <button onclick="window.location.reload();">restart</button>
+            <button onclick="window.location.reload();">RESTART</button>
         </form>
+
+        <footer>
+            <p>icons by <a target="_blank" href="https://icons8.com">Icons8</a></p>
+        </footer>
     </section>
+
     <script src="assets/js/main.js"></script>
 </body>
 
