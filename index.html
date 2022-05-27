@@ -32,13 +32,15 @@
             </article>
             <article>
                 <p>Points</p>
-                <p>
-                    <span><img src="assets/img/icons8-benutzer-48.png" alt="user"></span>
-                    <span id="outputScoreUser"></span>
-                    <span> : </span>
-                    <span id="outputScoreComputer"></span>
-                    <span><img src="assets/img/icons8-computer-50.png" alt=""></span>
-                </p>
+                <div class="output_points">
+                    <span><img src="assets/img/icons8-user-64.png" alt="user"></span>
+                    <div>
+                        <span id="outputScoreUser"></span>
+                        <span> : </span>
+                        <span id="outputScoreComputer"></span>
+                    </div>
+                    <span><img src="assets/img/icons8-monitor-48.png" alt="computer"></span>
+                </div>
             </article>
             <p id="outputResult"></p>
             <article class="icons">
@@ -50,7 +52,7 @@
                         alt="scissors"></button>
             </article>
             <p id="outputInstruction"></p>
-            <button onclick="window.location.reload();">RESTART</button>
+            <button class="restart" onclick="window.location.reload();">RESTART</button>
         </form>
 
         <footer>

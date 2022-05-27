@@ -183,6 +183,9 @@ chooseScissors = () => {
 startGame = () => {
     if (rounds > 0) {
         getComputersChoice();
+        if (countRounds >= rounds) {
+            button.style.display = 'none';
+        }
         compareChoices();
     }
     else {

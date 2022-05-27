@@ -18,38 +18,69 @@ section {
     background: #c8d8e4;
     width: 50%;
     text-align: center;
-    padding: 5%;
+    padding: 2%;
     margin: 20vh auto;
     border-radius: 10px;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
+    box-shadow: 10px 10px 10px rgb(120, 120, 120)
 }
 
 h1 {
     background: #2b6777;
     color: #f2f2f2;
-    /* margin: 0 20%; */
-    padding: 5% 2%;
+    padding: 2%;
 }
 
 .input_rounds {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    width: 60%;
+    margin: auto;
+    justify-content: space-evenly;
 }
 
-.icons {
+.output_points {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.output_points img {
+    border-radius: 50px;
+    width: 50px;
+    height: 50px;
+    background: #ffffff;
+    border: none;
+    box-shadow: 5px 5px 5px rgb(120, 120, 120)
 }
 
 .icons button {
     border-radius: 50px;
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
     background: #ffffff;
     border: none;
+    box-shadow: 5px 5px 5px rgb(120, 120, 120)
+}
+
+.icons {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.restart {
+    background: #2b6777;
+    border: none;
+    color: #f2f2f2;
+    padding: 2% 5%;
+    box-shadow: 5px 5px 5px rgb(120, 120, 120);
+}
+
+.restart:hover,
+.icons button:hover {
+    transform: scale(1.1);
+    transition: transform 500ms ease-in-out;
 }
 
 footer p {
-    font-size: 1rem;
+    font-size: .8rem;
 }
