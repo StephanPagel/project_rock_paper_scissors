@@ -1,21 +1,24 @@
+'use strict'
+
 // Input
 
 const inputRounds5 = document.getElementById('inputRounds5');
 const inputRounds10 = document.getElementById('inputRounds10');
 const inputRounds15 = document.getElementById('inputRounds15');
 const inputRounds20 = document.getElementById('inputRounds20');
-let inputChoiceRock = document.getElementById('inputChoiceRock');
-let inputChoicePaper = document.getElementById('inputChoicePaper');
-let inputChoiceScissors = document.getElementById('inputChoiceScissors');
+const inputChoiceRock = document.getElementById("inputChoiceRock");
+const inputChoicePaper = document.getElementById("inputChoicePaper");
+const inputChoiceScissors = document.getElementById("inputChoiceScissors");
+const inputButtons = document.getElementById("inputButtons");
 
 // Output
 
-let outputRoundsCurrent = document.getElementById('outputRoundsCurrent');
-let outputRoundsTotal = document.getElementById('outputRoundsTotal');
-let outputScoreUser = document.getElementById('outputScoreUser');
-let outputScoreComputer = document.getElementById('outputScoreComputer');
-let outputResult = document.getElementById('outputResult');
-let outputInstruction = document.getElementById('outputInstruction');
+const outputRoundsCurrent = document.getElementById("outputRoundsCurrent");
+const outputRoundsTotal = document.getElementById("outputRoundsTotal");
+const outputScoreUser = document.getElementById("outputScoreUser");
+const outputScoreComputer = document.getElementById("outputScoreComputer");
+const outputResult = document.getElementById("outputResult");
+const outputInstruction = document.getElementById("outputInstruction");
 
 let rounds;
 let usersChoice;
@@ -35,36 +38,30 @@ outputInstruction.innerHTML = "Please select a number of rounds first."
 
 // Select rounds
 
-selectRounds = () => {
+const selectRounds = () => {
     if (inputRounds5.checked) {
         rounds = 5;
         outputRoundsTotal.innerHTML = rounds;
-        outputInstruction.style.color = 'black';
-        outputInstruction.innerHTML = 'Make a move.'
     }
     else if (inputRounds10.checked) {
         rounds = 10;
         outputRoundsTotal.innerHTML = rounds;
-        outputInstruction.style.color = 'black';
-        outputInstruction.innerHTML = 'Make a move.'
     }
     else if (inputRounds15.checked) {
         rounds = 15;
         outputRoundsTotal.innerHTML = rounds;
-        outputInstruction.style.color = 'black';
-        outputInstruction.innerHTML = 'Make a move.'
     }
     else if (inputRounds20.checked) {
         rounds = 20;
         outputRoundsTotal.innerHTML = rounds;
-        outputInstruction.style.color = 'black';
-        outputInstruction.innerHTML = 'Make a move.'
     }
+    outputInstruction.style.color = 'black';
+    outputInstruction.innerHTML = 'Make a move.'
 }
 
 // Computers Choice
 
-getComputersChoice = () => {
+const getComputersChoice = () => {
     computersChoice = Math.floor(Math.random() * 3) + 1;
     switch (computersChoice) {
         case 1:
@@ -81,110 +78,68 @@ getComputersChoice = () => {
 
 // Who wins?
 
-compareChoices = () => {
+const compareChoices = () => {
     switch (true) {
-        case (usersChoice === 'rock' && computersChoice === 'rock'):
-            countRounds++;
-            outputRoundsCurrent.innerHTML = countRounds;
+        case (usersChoice === 'rock' && computersChoice === 'rock') ||
+             (usersChoice === 'paper' && computersChoice === 'paper') ||
+             (usersChoice === 'scissors' && computersChoice === 'scissors'):
             outputResult.innerHTML = `It's a draw! You both chose ${(usersChoice.toUpperCase())}.`;
-            outputResult.style.color = 'black';
+            outputResult.style.color = 'orange';
             break;
-        case (usersChoice === 'rock' && computersChoice === 'paper'):
-            countRounds++;
-            outputRoundsCurrent.innerHTML = countRounds;
+        case (usersChoice === 'rock' && computersChoice === 'paper') ||
+             (usersChoice === 'paper' && computersChoice === 'scissors') ||
+             (usersChoice === 'scissors' && computersChoice === 'rock'):
             scoreComputer++;
-            outputScoreComputer.innerHTML = scoreComputer;
             outputResult.innerHTML = `You lose! ${(usersChoice.toUpperCase())} is defeated by ${(computersChoice.toUpperCase())}.`
             outputResult.style.color = 'red';
             break;
-        case (usersChoice === 'rock' && computersChoice === 'scissors'):
-            countRounds++;
-            outputRoundsCurrent.innerHTML = countRounds;
+        case (usersChoice === 'rock' && computersChoice === 'scissors') ||
+             (usersChoice === 'scissors' && computersChoice === 'paper') ||
+             (usersChoice === 'paper' && computersChoice === 'rock'):
             scoreUser++;
-            outputScoreUser.innerHTML = scoreUser;
             outputResult.innerHTML = `You win! ${(usersChoice.toUpperCase())} beats ${(computersChoice.toUpperCase())}.`
             outputResult.style.color = 'green';
-            break;
-        case (usersChoice === 'paper' && computersChoice === 'rock'):
-            countRounds++;
-            outputRoundsCurrent.innerHTML = countRounds;
-            scoreUser++;
-            outputScoreUser.innerHTML = scoreUser;
-            outputResult.innerHTML = `You win! ${(usersChoice.toUpperCase())} beats ${(computersChoice.toUpperCase())}.`
-            outputResult.style.color = 'green';
-            break;
-        case (usersChoice === 'paper' && computersChoice === 'paper'):
-            countRounds++;
-            outputRoundsCurrent.innerHTML = countRounds;
-            outputResult.innerHTML = `It's a draw! You both chose ${(usersChoice.toUpperCase())}.`;
-            outputResult.style.color = 'black';
-            break;
-        case (usersChoice === 'paper' && computersChoice === 'scissors'):
-            countRounds++;
-            outputRoundsCurrent.innerHTML = countRounds;
-            scoreComputer++;
-            outputScoreComputer.innerHTML = scoreComputer;
-            outputResult.innerHTML = `You lose! ${(usersChoice.toUpperCase())} is defeated by ${(computersChoice.toUpperCase())}.`
-            outputResult.style.color = 'red';
-            break;
-        case (usersChoice === 'scissors' && computersChoice === 'rock'):
-            countRounds++;
-            outputRoundsCurrent.innerHTML = countRounds;
-            scoreComputer++;
-            outputScoreComputer.innerHTML = scoreComputer;
-            outputResult.innerHTML = `You lose! ${(usersChoice.toUpperCase())} is defeated by ${(computersChoice.toUpperCase())}.`
-            outputResult.style.color = 'red';
-            break;
-        case (usersChoice === 'scissors' && computersChoice === 'paper'):
-            countRounds++;
-            outputRoundsCurrent.innerHTML = countRounds;
-            scoreUser++;
-            outputScoreUser.innerHTML = scoreUser;
-            outputResult.innerHTML = `You win! ${(usersChoice.toUpperCase())} beats ${(computersChoice.toUpperCase())}.`
-            outputResult.style.color = 'green';
-            break;
-        case (usersChoice === 'scissors' && computersChoice === 'scissors'):
-            countRounds++;
-            outputRoundsCurrent.innerHTML = countRounds;
-            outputResult.innerHTML = `It's a draw! You both chose ${(usersChoice.toUpperCase())}.`;
-            outputResult.style.color = 'black';
             break;
     }
+    countRounds++;
+    outputRoundsCurrent.innerHTML = countRounds;
+    outputScoreUser.innerHTML = scoreUser;
+    outputScoreComputer.innerHTML = scoreComputer;
+
     if (countRounds === rounds) {
         if (scoreUser < scoreComputer) {
-            outputResult.innerHTML = `You lose... You ${scoreUser} : ${scoreComputer} Computer`;
+            outputResult.innerHTML = `GAME OVER! You lose! 😟 You ${scoreUser} : ${scoreComputer} Computer`;
             outputResult.style.color = 'red';
-            outputInstruction.innerHTML = 'Hit RESTART to play again.';
         } else if (scoreUser > scoreComputer) {
-            outputResult.innerHTML = `You win! You ${scoreUser} : ${scoreComputer} Computer`;
+            outputResult.innerHTML = `GAME OVER! You win! 🎉 You ${scoreUser} : ${scoreComputer} Computer`;
             outputResult.style.color = 'green';
-            outputInstruction.innerHTML = 'Hit RESTART to play again.';
         } else if (scoreUser === scoreComputer) {
-            outputResult.innerHTML = `It's a draw! ${scoreUser} Point(s)each`;
-            outputResult.style.color = 'black';
-            outputInstruction.innerHTML = 'Hit RESTART to play again.';
+            outputResult.innerHTML = `GAME OVER! It's a draw! 🤔 ${scoreUser} Point(s)each`;
+            outputResult.style.color = 'orange';
         }
+        outputInstruction.innerHTML = "Hit RESTART to play again.";
+        outputInstruction.style.color = 'red';
     }
 }
 
-chooseRock = () => {
+const chooseRock = () => {
     usersChoice = 'rock';
     startGame();
 }
-choosePaper = () => {
+const choosePaper = () => {
     usersChoice = 'paper';
     startGame();
 }
-chooseScissors = () => {
-    usersChoice = 'scissors';
-    startGame();
-}
+const chooseScissors = () => {
+  usersChoice = "scissors";
+  startGame();
+};
 
-startGame = () => {
+const startGame = () => {
     if (rounds > 0) {
         getComputersChoice();
-        if (countRounds >= rounds) {
-            button.style.display = 'none';
+        if (countRounds === rounds-1) {
+            inputButtons.style.display = 'none';
         }
         compareChoices();
     }
